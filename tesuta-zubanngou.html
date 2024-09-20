@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ステータス番号</title>
+    <style>
+        .tb1 {
+    width: 100%;
+    margin: 1em 0 1em 0;
+    border-collapse: collapse;
+
+}
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    unicode-bidi: isolate;
+    border-spacing: 2px;
+    border-color: gray;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+.tb1 th {
+    background-color: #d8e0f0;
+    color: #456;
+    font-weight: bold;
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+    padding: 2px 4px 2px 4px;
+    vertical-align: top;
+}
+.tb1 td {
+    padding: 2px 4px 2px 4px;
+    vertical-align: top;
+}
+table.tb1 td {
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+}
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+    unicode-bidi: isolate;
+}
+.tb1 th {
+    text-align: left;
+}
+    </style>
+</head>
+<body>
+    <table class="tb1">
+        <tbody><tr><th>分類</th><th>番号</th><th>メッセージ</th><th>説明</th></tr>
+        <tr><td rowspan="2">情報</td><td>100</td><td>Continue</td><td>処理を継続しています。続きのリクエストを送信してください。</td></tr>
+        <tr><td>101</td><td>Switching Protocols</td><td>Upgrade ヘッダで指定したプロトコルに変更して再要求してください。</td></tr>
+        <tr><td rowspan="7">成功</td><td>200</td><td>OK</td><td>成功しました。</td></tr>
+        <tr><td>201</td><td>Created</td><td>Location ヘッダで指定した場所に新しいコンテンツが作成されました。</td></tr>
+        <tr><td>202</td><td>Accepted</td><td>要求は受理されました。ただし処理は完了していません。</td></tr>
+        <tr><td>203</td><td>Non-Authoritative Information</td><td>応答ヘッダはオリジナルサーバーが返したものとは異なりますが、処理は成功です。</td></tr>
+        <tr><td>204</td><td>No Content</td><td>コンテンツはありませんが、処理は成功しました。</td></tr>
+        <tr><td>205</td><td>Reset Content</td><td>要求を受理したので、現在のコンテンツ（画面）を破棄してください。。</td></tr>
+        <tr><td>206</td><td>Partial Content</td><td>コンテンツを一部のみ返却します。</td></tr>
+        <tr><td rowspan="8">転送</td><td>300</td><td>Multiple Choices</td><td>コンテンツ入手方法について複数の選択肢があります。</td></tr>
+        <tr><td>301</td><td>Moved Permanently</td><td>Location ヘッダで指定された別の場所に移動しました。</td></tr>
+        <tr><td>302</td><td>Found</td><td>Location ヘッダで指定された別の場所に見つかりました。そちらを見てください。</td></tr>
+        <tr><td>303</td><td>See Other</td><td>Location ヘッダで指定された他の場所を見てください。</td></tr>
+        <tr><td>304</td><td>Not Modified</td><td>更新されていません。If-Modified-Since ヘッダを用いた場合に返却されます。</td></tr>
+        <tr><td>305</td><td>Use Proxy</td><td>Location ヘッダで指定したプロキシを使用してください。</td></tr>
+        <tr><td>306</td><td>(Unused)</td><td>未使用。</td></tr>
+        <tr><td>307</td><td>Temporary Redirect</td><td>別の場所に一時的に移動しています。</td></tr>
+        <tr><td rowspan="18">クライアントエラー</td><td>400</td><td>Bad Request</td><td>要求が不正です。</td></tr>
+        <tr><td>401</td><td>Unauthorized</td><td>認証されていません。</td></tr>
+        <tr><td>402</td><td>Payment Required</td><td>支払いが必要です。</td></tr>
+        <tr><td>403</td><td>Forbidden</td><td>アクセスが認められていません。</td></tr>
+        <tr><td>404</td><td>Not Found</td><td>見つかりません。</td></tr>
+        <tr><td>405</td><td>Method Not Allowed</td><td>指定したメソッドはサポートされていません。</td></tr>
+        <tr><td>406</td><td>Not Acceptable</td><td>許可されていません。</td></tr>
+        <tr><td>407</td><td>Proxy Authentication Required</td><td>プロキシ認証が必要です。</td></tr>
+        <tr><td>408</td><td>Request Timeout</td><td>リクエストがタイムアウトしました。</td></tr>
+        <tr><td>409</td><td>Conflict</td><td>リクエストがコンフリクト（衝突・矛盾）しました。</td></tr>
+        <tr><td>410</td><td>Gone</td><td>要求されたコンテンツは無くなってしまいました。</td></tr>
+        <tr><td>411</td><td>Length Required</td><td>Content-Length ヘッダを付加して要求してください。</td></tr>
+        <tr><td>412</td><td>Precondition Failed</td><td>If-... ヘッダで指定された条件に合致しませんでした。</td></tr>
+        <tr><td>413</td><td>Request Entity Too Large</td><td>要求されたエンティティが大きすぎます。</td></tr>
+        <tr><td>414</td><td>Request-URI Too Long</td><td>要求された URI が長すぎます。</td></tr>
+        <tr><td>415</td><td>Unsupported Media Type</td><td>サポートされていないメディアタイプです。</td></tr>
+        <tr><td>416</td><td>Requested Range Not Satisfiable</td><td>要求されたレンジが不正です。</td></tr>
+        <tr><td>417</td><td>Expectation Failed</td><td>Expect ヘッダで指定された拡張要求は失敗しました。</td></tr>
+        <tr><td rowspan="6">サーバーエラー</td><td>500</td><td>Internal Server Error</td><td>サーバーで予期しないエラーが発生しました。</td></tr>
+        <tr><td>501</td><td>Not Implemented</td><td>実装されていません。</td></tr>
+        <tr><td>502</td><td>Bad Gateway</td><td>ゲートウェイが不正です。</td></tr>
+        <tr><td>503</td><td>Service Unavailable</td><td>サービスは利用可能ではありません。</td></tr>
+        <tr><td>504</td><td>Gateway Timeout</td><td>ゲートウェイがタイムアウトしました。</td></tr>
+        <tr><td>505</td><td>HTTP Version Not Supported</td><td>このHTTPバージョンはサポートされていません。</td></tr>
+        </tbody></table>
+</body>
+</html>
