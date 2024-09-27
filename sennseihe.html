@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パスワード入力</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #message {
+            display: none;
+            margin-top: 20px;
+            font-size: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>パスワードを入力してください</h1>
+    <input type="text" id="password" placeholder="5桁のパスワード" maxlength="5">
+    <button onclick="checkPassword()">送信</button>
+    <div id="message">
+      <p>成功しました</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            if (password.length === 5) {
+                document.getElementById('message').style.display = 'block';
+            } else {
+                alert('$K7m^9');
+            }
+        }
+    </script>
+</body>
+</html>
