@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>環境変数を利用したChatGPTとの会話</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 20px;
+      }
+      .chat-container {
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          max-width: 600px;
+          margin: auto;
+      }
+      .chat-box {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 10px;
+          height: 300px;
+          overflow-y: scroll;
+          margin-bottom: 10px;
+      }
+      .input-box {
+          display: flex;
+      }
+      .input-box input {
+          flex: 1;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+      }
+      .input-box button {
+          padding: 10px;
+          border: none;
+          background-color: #007bff;
+          color: white;
+          border-radius: 5px;
+          margin-left: 5px;
+          cursor: pointer;
+      }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+      <h2>環境変数を利用したChatGPTとの会話</h2>
+      <div class="chat-box" id="chat-box"></div>
+      <div class="input-box">
+          <input type="text" id="user-input" placeholder="メッセージを入力...">
+          <button onclick="sendMessage()">送信</button>
+      </div>
+  </div>
+
+  <script>
+      async function sendMessage() {
+          const input = document.getElementById('user-input');
+          const message = input.value;
+
+          if (message.trim() === '') return;
+
+          const chatBox = document.getElementById('chat-box');
+          chatBox.innerHTML += `<div><strong>あなた:</strong> ${message}</div>`;
+          input.value = '';
+
+          // APIを通じてChatGPTにメッセージを送信
+          const response = await fetch('https://api.openai.com/v1/chat/completions', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${process.env.-proj-VubaXPTZpF1Q08Hom1C5q3FkE-OtLhLMm3EF4K21le0Bd7FEkCj-4J7nHKkkwJEmj1sW6O1gCzT3BlbkFJBfvYsOcRwe7sBul6ewR3KtWlRxqOifwOR1XpvWBPoM8A6IhhwR34ZDCbunYmNGJIG9eK5IB8gA}` // 環境変数からAPIキーを取得
+              },
+              body: JSON.stringify({
+                  model: 'gpt-3.5-turbo', // 使用するモデル
+                  messages: [{ role: 'user', content: message }]
+              })
+          });
+
+          const data = await response.json();
+          const botMessage = data.choices[0].message.content;
+
+          chatBox.innerHTML += `<div><strong>ChatGPT:</strong> ${botMessage}</div>`;
+          chatBox.scrollTop = chatBox.scrollHeight;
+      }
+  </script>
+</body>
+</html></html>
