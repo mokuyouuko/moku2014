@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', 'Hiragino Sans', sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        .answer-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            width: 150px;
+            padding: 10px;
+            font-size: 1.2em;
+            margin: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result, #result2 {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 20px;
+            padding: 10px;
+            text-align: left;
+            line-height: 1.6;
+        }
+        .correct-link {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .correct-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="answer-box">
+        <input type="number" id="answer1" placeholder="最初の答えを入力" min="0" step="1">
+        <span>円</span>
+        <br>
+        <button onclick="submitAnswer()">送る</button>
+        <div id="result"></div>
+    </div>
+
+    <div class="answer-box">
+        <input type="number" id="answer2" placeholder="次の答えを入力" min="0" step="1">
+        <br>
+        <button onclick="checkSecondAnswer()">オクルマス</button>
+        <div id="result2"></div>
+    </div>
+
+    <script>
+        function submitAnswer() {
+            const answer = parseInt(document.getElementById('answer1').value);
+            const result = document.getElementById('result');
+            
+            if (answer === 85000) {
+                result.textContent = '40195 これをゆこうに伝える。';
+            } else if (answer === 40195) {
+                result.textContent = '40195 これをゆこうに伝える。';
+            } else {
+                result.textContent = 'そんなものなんてない！';
+            }
+        }
+
+        function checkSecondAnswer() {
+            const answer = parseInt(document.getElementById('answer2').value);
+            const result = document.getElementById('result2');
+            
+            if (answer === 20140325) {
+                result.innerHTML = '<a href="20140325.pdf" class="correct-link" target="_blank">正解です！PDFを開く</a>';
+                window.location.href = '20140325.pdf';
+            } else {
+                result.textContent = 'そんなものなんてない！';
+            }
+        }
+    </script>
+</body>
+</html>
